@@ -45,7 +45,7 @@ public class DBStoreImplTest {
         verify(mockPrStatement).setString(1, "Eva");
         verify(mockPrStatement).executeQuery();
         verify(mockResultSet).next();
-        verify(mockResultSet).getString(anyString());
+        verify(mockResultSet).getString("last_name");
         verify(mockResultSet).close();
         verify(mockPrStatement).close();
         verifyNoMoreInteractions(mockConnection, mockPrStatement, mockResultSet);
