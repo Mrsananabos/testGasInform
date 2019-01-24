@@ -36,4 +36,12 @@ public class ConnectionProducer {
         }
         return connection;
     }
+
+    public void shutDown(Connection connection) {
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            LOGGER.error(e.getMessage(), e);
+        }
+    }
 }

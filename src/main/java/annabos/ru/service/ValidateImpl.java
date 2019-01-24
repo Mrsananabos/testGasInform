@@ -46,7 +46,7 @@ public class ValidateImpl implements Validate {
     }
 
     private boolean valueIsValid(String value) {
-        return ((value != null) && (value.isEmpty()));
+        return ((value != null) && (!value.isEmpty()));
     }
 
 }
