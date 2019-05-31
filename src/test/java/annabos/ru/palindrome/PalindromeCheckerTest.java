@@ -1,19 +1,25 @@
 package annabos.ru.palindrome;
 
-import org.junit.Test;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import static org.junit.Assert.*;
 
 public class PalindromeCheckerTest {
 
-    @Test
-    public void inputIsPalidrome(){
-        assertTrue(PalindromeChecker.isPalindrome("Я Иду с МЕчем С! уд и, Я"));
+    @DataProvider
+    public Object[][] data() {
+        return new Object[][]{
+                {true, "Я Иду с МЕчем С! уд и, Я"},
+                {true, "В9ОЛ5ГУ3 ДИВ не5сет тесен ВИ99Д УГЛ5433ОВ"},
+                {false,"я иду с мечем"},
+                {false, null}
+        };
     }
 
-    @Test
-    public void inputIsNotPalidrome(){
-        assertFalse(PalindromeChecker.isPalindrome("я иду с мечем"));
+    @Test(dataProvider = "data")
+    public void inputIsPalidrome(boolean result, String input){
+        assertEquals(result, PalindromeChecker.isPalindrome(input));
     }
 
 }

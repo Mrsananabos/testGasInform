@@ -3,11 +3,15 @@ package annabos.ru.palindrome;
 public class PalindromeChecker {
 
     public static boolean isPalindrome(String input) {
+        boolean result = false;
         StringBuilder word = new StringBuilder();
-        input.chars()
-                .mapToObj(x -> (char) x)
-                .filter(x -> (Character.isLetter(x)))
-                .forEach(word::append);
-        return word.toString().equalsIgnoreCase(word.reverse().toString());
+        if (input != null) {
+            input.chars()
+                    .mapToObj(x -> (char) x)
+                    .filter(x -> (Character.isLetter(x)))
+                    .forEach(word::append);
+            result = word.toString().equalsIgnoreCase(word.reverse().toString());
+        }
+        return result;
     }
 }
